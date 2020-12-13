@@ -1,6 +1,27 @@
 # StrictMode
 Created Saturday 21 November 2020
 
+## Contents
+
+* [Introduction](#introduction)
+* [Summary and scope](#summary-and-scope)
+* [Definitions](#definitions)
+* [Motivation](#motivation)
+* [Introduction of import-time and run-time distinction](#introduction-of-import-time-and-run-time-distinction)
+* [Level 1: No namespace attributes additions/deletions](#level-1-no-namespace-attributes-additionsdeletions)
+* [Level 2: Implicit const namespace slots](#level-2-implicit-const-namespace-slots)
+* [Level 3: Explicit const namespace slots](#level-3-explicit-const-namespace-slots)
+* [Discussion and implications](#discussion-and-implications)
+	* [Dynamic module imports](#dynamic-module-imports)
+* [Support infrastructure](#support-infrastructure)
+	* [Plugging the globals() hole](#plugging-the-globals-hole)
+	* [Startup sequence compatibility between standard and strict mode](#startup-sequence-compatibility-between-standard-and-strict-mode)
+	* [Activating strict mode](#activating-strict-mode)
+* [Open issues](#open-issues)
+* [Implementation](#implementation)
+* [Prior art](#prior-art)
+* [Trivia](#trivia)
+
 ## Introduction
 
 This proposal seeks to introduce opt-in "strict execution mode" for Python language implementations interested in such a feature. Under this mode, some "overdynamic" language features are restricted in a reasonable way. The primary motivation for these restrictions are opportunities for simple(r) to implement runtime optimizations. However, it is also believed that the "strict mode" may also help on its own with clarity and maintenance of large(r) Python codebases.
